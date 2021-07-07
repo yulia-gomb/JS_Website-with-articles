@@ -2,10 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create a post</title>
+    <title>Article</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="post.css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 </head>
-<body>
-<h1>Create a post</h1>
 
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="../../index.html">
+            <img src="../../img/logo.png" alt="LeverX" />
+        </a>
+    </div>
+    <div class="button-plus-avatar">
+        <a href="../create/createPost.html" class="button-add-post">Create a Post</a>
+        <div class="avatar"></div>
+    </div>
+</header>
+
+<main class="create-post-page">
+    <div class="wrapper">
+        <form>
+            <input type="file" class="input-add-cover">
+            <h2>Enter the title of your article</h2>
+            <input type="text" placeholder="Enter Title">
+            <h2>Enter the subtitle of your article</h2>
+            <input type="text" placeholder="Enter Subtitle">
+            <h2>Tell your story...</h2>
+            <textarea></textarea>
+            <button>Add new block</button>
+            <h2>Add tag information</h2>
+            <ul id="tags"></ul>
+            <input type="text" placeholder="For example Angular">
+        </form>
+    </div>
+</main>
+
+<footer class="post-footer">
+    <button class="button-preview">Preview</button>
+    <button class="button-publish">Publish </button>
+
+</footer>
+
+<script src="../../data.js"></script>
+<script src="create.js"></script>
 </body>
 </html>

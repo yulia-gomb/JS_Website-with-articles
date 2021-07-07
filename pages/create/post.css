@@ -1,0 +1,42 @@
+.create-post-page{
+    margin-top: 80px;
+    background: url("../../img/background-create-a-post.png") no-repeat center center;
+    padding-top: 64px;
+    min-height: 100vh;
+}
+.input-add-cover{
+    width: 1152px;
+    height: 116px;
+    border: 1px dashed #2F80ED;
+    border-radius: 4px;
+}
+
+
+
+/* footer style start */
+.post-footer{
+    height: 80px;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 146px;
+    margin-top: 80px;
+}
+.post-footer button{
+    border-radius: 24px;
+    padding: 12px 40px;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+.button-preview{
+    color: #FFC513;
+    border: 1px solid #FFC513;
+    background: #FFFFFF;
+}
+.button-publish{
+    background: #F2C94C;
+}
+/* footer style end */

@@ -41,43 +41,6 @@ window.onload = function () {
         linkPlace.append(artImage, artTitle, artText);
     })
 
-
-    //убрать
-
-    const addLi = () =>{
-        const liClick = (e) =>{
-            if (e.ctrlKey){
-                e.target.classList.add("active");
-            }
-
-            else{
-                li.addEventListener("reset",resetActive);
-                resetActive();
-
-                e.target.classList.add("active");
-            }
-        }
-
-
-        let li = ce("li", random(1,10), undefined, "click" , liClick);
-
-        ul.append(li);
-    }
-
-    const resetActive = () =>{
-        let active = document.querySelectorAll("ul > li.active");
-        for(let i = 0 ; i< active.length ; i++) {
-            active[i].removeAttribute("class");
-        }
-
-    }
-
-    //Добавление обработчика события
-
-    tag.addEventListener("click",addLi);
-
-
-
 }
 
 // функция создания элементов
@@ -92,9 +55,9 @@ function ce(name,text,className,event,fn) {
         element.className = className;
     }
 
-    if(event!=undefined && fn!=undefined) {
+   /* if(event!=undefined && fn!=undefined) {
         element.addEventListener(event,fn);
-    }
+    }*/
 
     return element;
 }
