@@ -57,6 +57,8 @@ body{
     font-size: 16px;
 }
 
+/* header style start */
+
 .header{
     background-color: #2F80ED;
     height: 80px;
@@ -71,6 +73,45 @@ body{
     left: 0;
     width: 100%;
 }
+.avatar{
+    background-image: url("img/avatar.png");
+    width: 52px;
+    height: 52px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+}
+.logo{
+    margin: 5px;
+
+}
+.button-add-post{
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.05em;
+    width: 190px;
+    height: 48px;
+    border-radius: 24px;
+    margin-right: 35px;
+
+
+}
+.button-add-post a{
+
+}
+.button-add-post a:visited{
+    color: #FFFFFF;
+}
+
+.button-plus-avatar{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+/* header style end */
+
 
 article{
     min-height: 704px;
@@ -111,43 +152,9 @@ article{
     max-width: 1152px;
     margin: 0 auto;
 }
-.avatar{
-    background-image: url("img/avatar.png");
-    width: 52px;
-    height: 52px;
-    border: 1px solid #FFFFFF;
-    border-radius: 50%;
-}
-.logo{
-    margin: 5px;
 
-}
-.button-add-post{
-    border: 1px solid #FFFFFF;
-    color: #FFFFFF;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 0.05em;
-    width: 190px;
-    height: 48px;
-    border-radius: 24px;
-    margin-right: 35px;
+/* intro style start */
 
-
-}
-.button-add-post a{
-
-}
-.button-add-post a:visited{
-    color: #FFFFFF;
-}
-
-.button-plus-avatar{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 14px;
-    margin-bottom: 14px;
-}
 .intro{
    height: 100vh;
     background-color: #0054C5;
@@ -189,6 +196,11 @@ article{
     font-size: 16px;
     line-height: 150%;
 }
+
+/* intro style end */
+
+/* articles style start */
+
 .article h2{
     font-weight: 600;
     font-size: 34px;
@@ -238,3 +250,41 @@ article{
     background: #2F80ED;
     color: #FFFFFF;
 }
+#articles{
+    margin-top: 44px;
+    margin-bottom: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.frame{
+    width: 270px;
+    height: 352px;
+    background: #FFFFFF;
+    box-shadow: 0px 6px 8px rgba(234, 237, 242, 0.5);
+    border-radius: 15px;
+    margin-bottom: 24px;
+}
+
+.articleTitle{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.0075em;
+    margin: 16px auto 8px 16px;
+}
+.articleText{
+    line-height: 142%;
+    letter-spacing: 0.0168em;
+    color: #4F4F4F;
+    margin-right: 16px;
+    margin-left: 16px;
+    font-size: 14px;
+}
+.articleImage{
+    border-radius: 15px 15px 0 0;
+}
+
+/* articles style end */
