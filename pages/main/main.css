@@ -16,6 +16,9 @@ article{
     color: #FFFFFF;
     font-size: 18px;
 }
+.main{
+    padding-top: 80px;
+}
 .intro h2{
     font-weight: 600;
     font-size: 34px;
@@ -43,7 +46,7 @@ article{
     padding: 13px 33px;
     font-weight: bold;
     font-size: 16px;
-    line-height: 150%;
+
 }
 
 /* intro style end */
@@ -62,7 +65,6 @@ article{
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    line-height: 24px;
     letter-spacing: 0.0075em;
     background-color: #FFFFFF;
     box-shadow: 0px -6px 8px rgba(234, 237, 242, 0.5), 0px 6px 8px rgba(234, 237, 242, 0.5);
@@ -80,28 +82,7 @@ article{
 .button-search img{
     margin-right: 20px;
 }
-#tags{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-#tags li{
-    text-align: center;
-    letter-spacing: 0.0168em;
-    padding: 8px 24px;
-    background: #FFFFFF;
-    box-shadow: 0px 6px 8px rgba(234, 237, 242, 0.5);
-    border-radius: 40px;
-    width: max-content;
-    margin: 6px 6px;
-    cursor: pointer;
-}
-#tags li.active{
-    color: #FFFFFF;
-    background: url("../../img/icon-active.png") no-repeat 20% center #2F80ED;
-    padding-left: 50px;
 
-}
 #articles{
     margin-top: 44px;
     margin-bottom: 56px;
