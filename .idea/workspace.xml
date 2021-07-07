@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce4715a5-9bdf-47e1-90eb-86144ad411f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/background-create-a-post.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/icon-plus-black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/icon-plus-blue.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/create/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/create/create.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/create/createPost.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/create/createPost.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/create/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/create/post.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625650621197</updated>
-      <workItem from="1625650622775" duration="29119000" />
+      <workItem from="1625650622775" duration="32178000" />
     </task>
     <servers />
   </component>

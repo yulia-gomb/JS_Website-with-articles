@@ -247,7 +247,6 @@ body{
     letter-spacing: 0.005em;
     color: #F2C94C;
 }
-
 /* footer style end */
 
 
@@ -255,6 +254,8 @@ body{
     max-width: 1152px;
     margin: 0 auto;
 }
+
+
 /* tags style start */
 #tags{
     display: flex;
@@ -269,7 +270,7 @@ body{
     box-shadow: 0px 6px 8px rgba(234, 237, 242, 0.5);
     border-radius: 40px;
     width: max-content;
-    margin: 6px;
+    margin: 6px 12px 6px 0;
     cursor: pointer;
 }
 #tags li.active{

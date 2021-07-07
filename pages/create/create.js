@@ -5,7 +5,7 @@ window.onload = function () {
     let tags = document.getElementById('tags');
 
     data.tags.forEach(function (item, i){
-        let tag = ce("li", item, "tag");
+        let tag = ce("li", item, "tag plus");
         tags.append(tag);
     }
 
