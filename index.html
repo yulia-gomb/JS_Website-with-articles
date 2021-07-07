@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>LeverX</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="pages/main/main.css" />
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 </head>
 
@@ -16,7 +16,7 @@
         </a>
     </div>
     <div class="button-plus-avatar">
-        <a href="article/article.html" class="button-add-post">Create a Post</a>
+        <a href="pages/create/createPost.html" class="button-add-post">Create a Post</a>
         <div class="avatar"></div>
     </div>
 </header>
@@ -25,12 +25,8 @@
     <section>
         <div class="intro">
         <div class="wrapper">
-            <h2>
-                Free courses from
-            </h2>
-            <h1>
-                LEVERX GROUP
-            </h1>
+            <h2>Free courses from</h2>
+            <h1>LEVERX GROUP</h1>
             <p>The profession of a programmer is one of the most demanded</br>
                 in the IT field today. Programming training at LeverX Group</br>
                 is an excellent opportunity to gain practical knowledge</br>
@@ -46,7 +42,8 @@
             <h2>Interesting articles by LeverX Group</h2>
             <button type="submit" class="button-search">
                 <img src="img/search-icon.png" />
-                Search for article</button>
+                <span>Search for article</span>
+            </button>
             <ul id="tags"></ul>
             <div id="articles"></div>
         </div>
@@ -65,6 +62,6 @@
     </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="pages/main/app.js"></script>
 </body>
 </html>

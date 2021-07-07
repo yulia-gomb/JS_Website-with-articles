@@ -80,14 +80,21 @@ window.onload = function () {
     data.articles.forEach(function (item, i) {
         let frame = ce("div","", "frame")
         arts.append(frame)
-        console.log(item, i)
-        let framePlace = document.getElementsByClassName("frame")[i]
+        let framePlace = document.getElementsByClassName("frame")[i];
+
+        let link = ce("a","", "link");
+        link.setAttribute("href", "pages/article/article.html");
+        console.log(link)
+        framePlace.append(link);
+
+        let linkPlace = document.getElementsByClassName("link")[i];
+
         let artImage = ce("img","", "articleImage");
         artImage.setAttribute("src", item.url)
-        console.log(artImage)
+        /*console.log(artImage)*/
         let artTitle = ce("div", item.title, "articleTitle")
         let artText = ce("div", item.text, "articleText")
-        framePlace.append(artImage, artTitle, artText)
+        linkPlace.append(artImage, artTitle, artText);
     })
 
 
