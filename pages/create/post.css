@@ -1,6 +1,6 @@
 .create-post-page{
     margin-top: 80px;
-    background: url("../../img/background-create-a-post.png") no-repeat center 370px;
+    background: url("../../img/background-create-a-post.png") no-repeat center 350px;
     padding-top: 64px;
     min-height: 100vh;
 }
@@ -22,12 +22,75 @@ input, textarea{
     padding: 12px 32px;
     border-radius: 4px;
 }
-.input-add-cover{
+/* upload-file style start*/
+.upload-file__wrapper{
     width: 100%;
     height: 116px;
     border: 1px dashed #2F80ED;
-    margin-bottom: 13px;
+    margin-bottom: 30px;
 }
+.upload-file__input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    width: 0.4px;
+    height: 0.4px;
+}
+.upload-file__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 9px 49px;
+    cursor: pointer;
+    color: #2F80ED;
+}
+.upload-file__icon {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
+.upload-file__label .upload-file__text,
+.upload-file__label .upload-file__icon path {
+    transition: .25s ease;
+}
+.upload-file__label:hover .upload-file__text {
+    color: #333333;
+}
+
+.upload-file__label:hover {
+    border: 1px dashed #333333;
+}
+/* drag and drop - "hover" */
+.upload-file__label.hover .upload-file__text {
+    color: #FFC513;
+}
+
+.upload-file__label.hover {
+    border: 1px dashed #FFC513;
+}
+
+/* drag and drop - ошибка */
+.upload-file__label.error .upload-file__text {
+    color: #d32f2f;
+}
+
+.upload-file__label.error {
+    border: 2px dashed #d32f2f;
+}
+
+/* drag and drop - файл успешно перетянут */
+.upload-file__label.drop .upload-file__text {
+    color: #333333;
+}
+
+.upload-file__label.drop {
+    border: 1px dashed #333333;
+}
+/* upload-file style end*/
+
 .input-enter-title{
     font-weight: bold;
     font-size: 42px;

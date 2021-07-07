@@ -106,6 +106,9 @@ article{
 .frame:active{
     box-shadow: 0px 12px 24px rgba(227, 232, 240, 0.5)
 }
+.frame a:visited{
+    color: #333333;
+}
 
 
 .articleTitle{
