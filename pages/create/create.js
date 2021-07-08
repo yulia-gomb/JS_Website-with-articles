@@ -12,9 +12,26 @@ window.onload = function () {
     )
 
 
-    //убрать
+    //добавление нового блока
 
-    const addLi = () =>{
+
+    let button = document.getElementById('button-add-new-block');
+
+    button.addEventListener("click",addBlock);
+    console.log(button)
+
+    function addBlock(e){
+        e.preventDefault();
+        console.log("new block");
+        let newBlock= ce("input", "", "created-block");
+        newBlock.setAttribute("type", "text");
+        console.log(newBlock)
+        let placeNewBlock=document.getElementById("new-block");
+        placeNewBlock.append(newBlock);
+
+    }
+
+    /*const addBlock = () =>{
         const liClick = (e) =>{
             if (e.ctrlKey){
                 e.target.classList.add("active");
@@ -32,19 +49,9 @@ window.onload = function () {
         let li = ce("li", random(1,10), undefined, "click" , liClick);
 
         ul.append(li);
-    }
+    }*/
 
-    const resetActive = () =>{
-        let active = document.querySelectorAll("ul > li.active");
-        for(let i = 0 ; i< active.length ; i++) {
-            active[i].removeAttribute("class");
-        }
 
-    }
-
-    //Добавление обработчика события
-
-        // tag.addEventListener("click",addLi);
 
 
 

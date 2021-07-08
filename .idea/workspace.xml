@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/pages/create/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/create/create.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/create/createPost.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/create/createPost.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/create/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/create/post.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625650621197</updated>
-      <workItem from="1625650622775" duration="37647000" />
+      <workItem from="1625650622775" duration="39840000" />
     </task>
     <servers />
   </component>

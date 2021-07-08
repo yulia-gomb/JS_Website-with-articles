@@ -2,7 +2,6 @@
     margin-top: 80px;
     background: url("../../img/background-create-a-post.png") no-repeat center 350px;
     padding-top: 64px;
-    min-height: 100vh;
 }
 
 /* form style start */
@@ -127,7 +126,10 @@ textarea{
 }
 /* form style end */
 
-
+.created-block{
+    height: 100px;
+    margin: 15px 0;
+}
 /* footer style start */
 .post-footer{
     height: 80px;
