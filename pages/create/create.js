@@ -22,12 +22,21 @@ window.onload = function () {
 
     function addBlock(e){
         e.preventDefault();
-        console.log("new block");
-        let newBlock= ce("input", "", "created-block");
+        /*subtitle*/
+        let newBlockSubsription = ce("h2","Enter the subtitle of your article")
+
+        let newBlock= ce("input", "", "input-enter-subtitle");
         newBlock.setAttribute("type", "text");
-        console.log(newBlock)
+        newBlock.setAttribute("placeholder", "Enter Subtitle");
+
+        /*console.log(newBlock)*/
+
+        let newStorySubsription = ce("h2","Tell your story");
+        let newStory= ce("textarea");
+
         let placeNewBlock=document.getElementById("new-block");
-        placeNewBlock.append(newBlock);
+
+        placeNewBlock.append(newBlockSubsription,newBlock, newStorySubsription, newStory);
 
     }
 
