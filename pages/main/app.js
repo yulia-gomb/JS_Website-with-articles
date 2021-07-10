@@ -1,5 +1,7 @@
 window.onload = function () {
 
+
+
     //добавление тегов на страницу
 
     let tags = document.getElementById('tags');
@@ -62,6 +64,23 @@ function ce(name,text,className,event,fn) {
     return element;
 }
 
+// кнопки header
 
+let buttonLogOut = document.getElementById("button-log-out");
+let buttonLogIn = document.getElementById("button-log-in");
+let buttonCreatePost = document.getElementById("button-create-post");
+let avatar = document.getElementById("avatar");
+console.log(buttonCreatePost)
+
+// функционал кнопки Log out
+
+buttonLogOut.addEventListener('click', (e) =>{
+        buttonLogIn.classList.remove("hidden");
+        buttonLogOut.classList.add("hidden");
+        buttonCreatePost.classList.add("hidden");
+        avatar.classList.add("hidden");
+        console.log(buttonCreatePost)
+    }
+)
 
 

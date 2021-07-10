@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <title>Log In</title>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="#">
+            <img src="../../img/logo.png" alt="LeverX" />
+        </a>
+    </div>
+    <div class="button-plus-avatar">
+        <!--<a href="pages/create/createPost.html" class="button-add-post" id="button-create-post">Create a Post</a>
+        <a href="pages/login/login.html" class="button-log hidden" id="button-log-in">
+            Sign In</a>
+        <a href="#" class="button-log" id="button-log-out">Log out</a>
+        <div class="avatar" id="avatar"></div>-->
+    </div>
+</header>
+
+<main class="page-log-in">
+    <div class="wrapper">
+        <h1>Welcome to course</h1>
+        <form>
+            <input type="submit" id="sign-in-google" disabled="true">
+                Sign In with Google
+            </input>
+            <input type="checkbox" id="google-terms" onclick="check();">
+            <label for="google-terms">
+                You agree to our Terms of Use and Privacy Policy
+            </label>
+        </form>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="copyright">
+        <p>2021 © LeverX, Int. All Rights Reserved.</p>
+    </div>
+    <div class="media-plus-support">
+        <div class="footer-socials-item"><a href="https://www.facebook.com/leverxint" class="footer-socials-link fb"></a></div>
+        <div class="footer-socials-item"><a href="https://t.me/leverxstream" class="footer-socials-link tg"></a></div>
+        <div class="footer-socials-item"><a href="https://www.instagram.com/leverx_stream/?hl=ru" class="footer-socials-link inst"></a></div>
+        <div class="support"><p>Support</p></div>
+    </div>
+</footer>
+<script src="login.js"></script>
+</body>
+</html>

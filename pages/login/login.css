@@ -1,0 +1,19 @@
+.page-log-in{
+    margin-top: 80px;
+}
+.page-log-in h1{
+    font-weight: bold;
+    font-size: 60px;
+    letter-spacing: -0.01em;
+    color: #333333;
+    padding-top: 280px;
+    margin-bottom: 64px;
+    text-align: center;
+}
+#sign-in-google{
+    padding: 24px 40px;
+    width: 342px;
+    background: #FFFFFF;
+    box-shadow: 0px 6px 8px rgba(234, 237, 242, 0.5);
+    border-radius: 24px;
+}
