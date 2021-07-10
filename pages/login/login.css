@@ -7,7 +7,6 @@
     letter-spacing: -0.01em;
     color: #333333;
     padding-top: 280px;
-    margin-bottom: 64px;
     text-align: center;
 }
 #sign-in-google{
@@ -16,4 +15,16 @@
     background: #FFFFFF;
     box-shadow: 0px 6px 8px rgba(234, 237, 242, 0.5);
     border-radius: 24px;
+    margin-top: 65px;
+    margin-bottom: 32px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+    background: url("../../img/icon-google.png") no-repeat 20% center #FFFFFF;
+}
+.agree-area{
+    margin-top: 32px;
+    margin-bottom: 340px;
+    text-align: center;
 }
