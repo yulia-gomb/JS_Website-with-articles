@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="post.css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+</head>
+
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="../../index.html">
+            <img src="../../img/logo.png" alt="LeverX" />
+        </a>
+    </div>
+    <div class="button-plus-avatar">
+        <a href="../create/createPost.html" class="button-add-post">Create a Post</a>
+        <div class="avatar"></div>
+    </div>
+</header>
+
+<main class="create-post-page">
+    <div class="wrapper">
+        <form class="form">
+
+            <div class="upload-file__wrapper">
+                <input
+                        type="file"
+                        name="files[]"
+                        id="upload-file__input_1"
+                        class="upload-file__input"
+                        accept=".jpg, .jpeg, .png, .gif, .bmp"
+                >
+                <label class="upload-file__label" for="upload-file__input_1">
+                    <img class="upload-file__icon" src="../../img/icon-plus-blue.png"/>
+                    <span class="upload-file__text">Add Cover</span>
+                </label>
+            </div>
+
+            <h2>Enter the title of your article</h2>
+            <input type="text" placeholder="Enter Title" class="input-enter-title">
+            <h2>Enter the subtitle of your article</h2>
+            <input type="text" placeholder="Enter Subtitle" class="input-enter-subtitle">
+            <h2>Tell your story...</h2>
+            <textarea></textarea>
+
+            <div id="new-block"></div>
+            <button class="button-add-new-block" id="button-add-new-block">Add new block</button>
+
+            <h2>Add tag information</h2>
+            <ul id="tags"></ul>
+            <input type="text" placeholder="For example Angular" class="input-add-tag">
+        </form>
+    </div>
+</main>
+
+<footer class="post-footer">
+    <button class="button-preview">Preview</button>
+    <button type="submit" class="button-publish">Publish </button>
+
+</footer>
+
+<script src="../../data.js"></script>
+<script src="create.js"></script>
+</body>
+</html>
