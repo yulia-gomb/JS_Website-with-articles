@@ -21,7 +21,8 @@
     left: 50%;
     transform: translate(-50%, 0);
     cursor: pointer;
-    background: url("../../img/icon-google.png") no-repeat 20% center #FFFFFF;
+    background: url("../../img/icon-google.png") no-repeat 70px center #FFFFFF;
+    text-align: center;
 }
 .agree-area{
     margin-top: 32px;
