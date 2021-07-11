@@ -6,10 +6,13 @@
     <link rel="stylesheet" href="../../style.css" />
     <title>Log In</title>
 </head>
+
 <body>
+
+
 <header class="header">
     <div class="logo">
-        <a href="#">
+        <a href="../../index.html">
             <img src="../../img/logo.png" alt="LeverX" />
         </a>
     </div>
@@ -26,7 +29,10 @@
     <div class="wrapper">
         <h1>Welcome to course</h1>
         <form>
-            <input type="submit" id="sign-in-google" disabled="true"  value="Sign In with Google">
+            <!--<input type="submit" id="sign-in-google" disabled="true"  value="Sign In with Google"
+            onclick="SignIn();">-->
+            <!--<button onclick="SignIn();">SIGN IN</button>-->
+            <div onclick="googleSignIn()";>SIGN IN</div>
 
             <div class="agree-area">
                 <input type="checkbox" id="google-terms" onclick="check();">
@@ -49,6 +55,38 @@
         <div class="support"><p>Support</p></div>
     </div>
 </footer>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+<script>
+    // Initialize Firebase
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyATt36GJHPvqSKNaTIcdXpU47Xdv0_Ofmg",
+        authDomain: "leverx-745ad.firebaseapp.com",
+        projectId: "leverx-745ad",
+        storageBucket: "leverx-745ad.appspot.com",
+        messagingSenderId: "33580969644",
+        appId: "1:33580969644:web:b12ab304545fb49a5ab909"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    googleSignIn=() => {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            console.log("success")
+            console.log(result)
+           /* console.log(result.additionalUserInfo.profile.picture)*/
+        }).catch(function (err) {
+            console.log("error")
+            console.log(err)
+        })
+    }
+
+</script>
+
 <script src="login.js"></script>
+
 </body>
 </html>

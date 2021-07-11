@@ -1,0 +1,22 @@
+{
+  "name": "leverx",
+  "version": "1.0.0",
+  "description": "study",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://edu-gitlab.leverx-group.com/july2021angular/grasevich.yuliya"
+  },
+  "keywords": [
+    "leverx"
+  ],
+  "author": "y.grasevich",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^8.7.1"
+  },
+  "devDependencies": {}
+}
