@@ -16,11 +16,11 @@
         </a>
     </div>
     <div class="button-plus-avatar">
-        <a href="../create/createPost.html" class="button-add-post" id="button-create-post">Create a Post</a>
+        <a href="../create/createPost.html" class="button-add-post hidden" id="button-create-post">Create a Post</a>
         <a href="../login/login.html" class="button-log hidden" id="button-log-in">
             Sign In</a>
-        <a href="#" class="button-log" id="button-log-out">Log out</a>
-        <div class="avatar" id="avatar"></div>
+        <a href="#" class="button-log hidden" id="button-log-out">Log out</a>
+        <div class="avatar hidden" id="avatar"></div>
     </div>
 </header>
 
@@ -87,6 +87,7 @@
     };
 
     firebase.initializeApp(firebaseConfig);
+
 </script>
 
 <script src="../main/app.js"></script>

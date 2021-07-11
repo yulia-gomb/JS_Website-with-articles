@@ -153,11 +153,11 @@ body{
     width: 100%;
 }
 .avatar{
-    background-image: url("img/avatar.png");
     width: 52px;
     height: 52px;
     border: 1px solid #FFFFFF;
     border-radius: 50%;
+    background: round;
 }
 .logo{
     margin: 5px;

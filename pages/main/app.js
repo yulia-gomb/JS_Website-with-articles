@@ -5,7 +5,7 @@ let buttonLogOut = document.getElementById("button-log-out");
 let buttonLogIn = document.getElementById("button-log-in");
 let buttonCreatePost = document.getElementById("button-create-post");
 let avatar = document.getElementById("avatar");
-console.log(buttonCreatePost)
+
 
 buttonLogOut.addEventListener("click", googleSignOut);
 
@@ -19,7 +19,8 @@ function googleSignIn() {
         console.log(result.additionalUserInfo.profile.picture)
         localStorage.setItem('authorized', true);
         localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
-
+        /*let img= localStorage.avatar;
+        avatar.setAttribute("style",`background-image: url(${img})`);*/
     }).catch(function (err) {
         console.log("error")
         console.log(err)
@@ -46,26 +47,28 @@ function googleSignOut() {
     })
 }
 
+//отрисовка header
+
+
+if(localStorage.authorized){
+    console.log("localStorage")
+    buttonCreatePost.classList.remove("hidden");
+    buttonLogOut.classList.remove("hidden");
+    let img= localStorage.avatar;
+    console.log(img)
+    avatar.setAttribute("style",`background-image: url(${img})`);
+    avatar.classList.remove("hidden");
+
+}
+
+if(!localStorage.authorized){
+    buttonLogIn.classList.remove("hidden");
+}
 
 
 window.onload = function () {
 
-    //отрисовка header
 
-
-
-    if(localStorage.authorized){
-        console.log("localStorage")
-        buttonCreatePost.classList.remove("hidden");
-        buttonLogOut.classList.remove("hidden");
-        avatar.classList.remove("hidden");
-
-
-    }
-
-    if(!localStorage.authorized){
-        buttonLogIn.classList.remove("hidden");
-    }
 
     //добавление тегов на страницу
 
@@ -130,38 +133,5 @@ function ce(name,text,className,event,fn) {
     return element;
 }
 
-
-
-
-
-/*function googleSignIn() {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        console.log("success")
-        console.log(result)
-        console.log(result.additionalUserInfo.profile.picture)
-        localStorage.setItem('authorized', true);
-        localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
-
-    }).catch(function (err) {
-        console.log("error")
-        console.log(err)
-    })
-}
-
-function googleSignOut() {
-
-    firebase.auth().signOut().then(function (result) {
-        console.log("success")
-        console.log(result)
-
-        delete localStorage.authorized;
-        delete localStorage.avatar;
-
-    }).catch(function (err) {
-        console.log("error")
-        console.log(err)
-    })
-}*/
 
 
