@@ -16,11 +16,11 @@
         </a>
     </div>
     <div class="button-plus-avatar">
-        <a href="pages/create/createPost.html" class="button-add-post" id="button-create-post">Create a Post</a>
+        <a href="pages/create/createPost.html" class="button-add-post hidden" id="button-create-post">Create a Post</a>
         <a href="pages/login/login.html" class="button-log hidden" id="button-log-in">
             Sign In</a>
-        <a href="#" class="button-log" id="button-log-out">Log out</a>
-        <div class="avatar" id="avatar"></div>
+        <a href="#" class="button-log hidden" id="button-log-out">Log out</a>
+        <div class="avatar hidden" id="avatar"></div>
     </div>
 </header>
 
@@ -65,7 +65,26 @@
     </div>
 </footer>
 
-<script src="pages/main/app.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+<script>
+    // Initialize Firebase
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyATt36GJHPvqSKNaTIcdXpU47Xdv0_Ofmg",
+        authDomain: "leverx-745ad.firebaseapp.com",
+        projectId: "leverx-745ad",
+        storageBucket: "leverx-745ad.appspot.com",
+        messagingSenderId: "33580969644",
+        appId: "1:33580969644:web:b12ab304545fb49a5ab909"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script src="pages/main/app.js"> </script>
 <script src="data.js"></script>
 </body>
 </html>

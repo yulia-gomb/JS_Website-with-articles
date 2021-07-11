@@ -1,6 +1,71 @@
+
+// кнопки header
+
+let buttonLogOut = document.getElementById("button-log-out");
+let buttonLogIn = document.getElementById("button-log-in");
+let buttonCreatePost = document.getElementById("button-create-post");
+let avatar = document.getElementById("avatar");
+console.log(buttonCreatePost)
+
+buttonLogOut.addEventListener("click", googleSignOut);
+
+// функционал кнопки Sign in
+
+function googleSignIn() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        console.log("success")
+        console.log(result)
+        console.log(result.additionalUserInfo.profile.picture)
+        localStorage.setItem('authorized', true);
+        localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
+
+    }).catch(function (err) {
+        console.log("error")
+        console.log(err)
+    })
+}
+// функционал кнопки Log out
+
+function googleSignOut() {
+
+    firebase.auth().signOut().then(function (result) {
+        console.log("success")
+        console.log(result)
+        buttonLogIn.classList.remove("hidden");
+        buttonLogOut.classList.add("hidden");
+        buttonCreatePost.classList.add("hidden");
+        avatar.classList.add("hidden");
+
+        delete localStorage.authorized;
+        delete localStorage.avatar;
+
+    }).catch(function (err) {
+        console.log("error")
+        console.log(err)
+    })
+}
+
+
+
 window.onload = function () {
 
+    //отрисовка header
 
+
+
+    if(localStorage.authorized){
+        console.log("localStorage")
+        buttonCreatePost.classList.remove("hidden");
+        buttonLogOut.classList.remove("hidden");
+        avatar.classList.remove("hidden");
+
+
+    }
+
+    if(!localStorage.authorized){
+        buttonLogIn.classList.remove("hidden");
+    }
 
     //добавление тегов на страницу
 
@@ -43,6 +108,7 @@ window.onload = function () {
         linkPlace.append(artImage, artTitle, artText);
     })
 
+
 }
 
 // функция создания элементов
@@ -64,23 +130,38 @@ function ce(name,text,className,event,fn) {
     return element;
 }
 
-// кнопки header
 
-let buttonLogOut = document.getElementById("button-log-out");
-let buttonLogIn = document.getElementById("button-log-in");
-let buttonCreatePost = document.getElementById("button-create-post");
-let avatar = document.getElementById("avatar");
-console.log(buttonCreatePost)
 
-// функционал кнопки Log out
 
-buttonLogOut.addEventListener('click', (e) =>{
-        buttonLogIn.classList.remove("hidden");
-        buttonLogOut.classList.add("hidden");
-        buttonCreatePost.classList.add("hidden");
-        avatar.classList.add("hidden");
-        console.log(buttonCreatePost)
-    }
-)
+
+/*function googleSignIn() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        console.log("success")
+        console.log(result)
+        console.log(result.additionalUserInfo.profile.picture)
+        localStorage.setItem('authorized', true);
+        localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
+
+    }).catch(function (err) {
+        console.log("error")
+        console.log(err)
+    })
+}
+
+function googleSignOut() {
+
+    firebase.auth().signOut().then(function (result) {
+        console.log("success")
+        console.log(result)
+
+        delete localStorage.authorized;
+        delete localStorage.avatar;
+
+    }).catch(function (err) {
+        console.log("error")
+        console.log(err)
+    })
+}*/
 
 

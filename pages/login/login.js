@@ -1,6 +1,4 @@
 
-
-
 function check() {
     let submit = document.getElementById("sign-in-google");
     if (document.getElementById('google-terms').checked)
@@ -8,6 +6,8 @@ function check() {
     else
         submit.disabled = true;
 }
+
+
 
 /*import firebase from "firebase/app";
 import "firebase/auth";*/
