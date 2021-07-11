@@ -19,7 +19,8 @@ function googleSignIn() {
         console.log(result.additionalUserInfo.profile.picture)
         localStorage.setItem('authorized', true);
         localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
-        window.location.href="../../index.html";
+        /*window.location.href="../../index.html";*/
+        window.history.back(2);
 
     }).catch(function (err) {
         console.log("error")
