@@ -1,24 +1,23 @@
 window.onload = function () {
 
-    //добавление тегов на страницу
+    //adding tags on page
 
     let tags = document.getElementById('tags');
 
-    data.tags.forEach(function (item, i){
+    data.tags.forEach(function (item){
         let tag = ce("li", item, "tag plus");
         tags.append(tag);
-    }
-
+        }
     )
 
 
-    //добавление нового блока
+    //adding new block
 
 
     let button = document.getElementById('button-add-new-block');
 
     button.addEventListener("click",addBlock);
-    console.log(button)
+    /*console.log(button)*/
 
     function addBlock(e){
         e.preventDefault();
@@ -39,51 +38,8 @@ window.onload = function () {
         placeNewBlock.append(newBlockSubsription,newBlock, newStorySubsription, newStory);
 
     }
-
-    /*const addBlock = () =>{
-        const liClick = (e) =>{
-            if (e.ctrlKey){
-                e.target.classList.add("active");
-            }
-
-            else{
-                li.addEventListener("reset",resetActive);
-                resetActive();
-
-                e.target.classList.add("active");
-            }
-        }
-
-
-        let li = ce("li", random(1,10), undefined, "click" , liClick);
-
-        ul.append(li);
-    }*/
-
-
-
-
-
 }
 
-// функция создания элементов
-
-function ce(name,text,className,event,fn) {
-    let element = document.createElement(name);
-    if(text!=undefined) {
-        element.innerHTML = text;
-    }
-
-    if(className!=undefined) {
-        element.className = className;
-    }
-
-    if(event!=undefined && fn!=undefined) {
-        element.addEventListener(event,fn);
-    }
-
-    return element;
-}
 
 // загрузка файла-картинки для статьи и ее перетаскивание
 
@@ -145,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const maxFileSize = 5000000; // максимальный размер файла - 5 мб.
 
         // Проверка поддержки «Drag-and-drop»
-        if (typeof (window.FileReader) == 'undefined') {
+        if (typeof (window.FileReader) === 'undefined') {
             dropZone.textContent = 'Drag&Drop Не поддерживается браузером!';
             dropZone.classList.add('error');
         }
