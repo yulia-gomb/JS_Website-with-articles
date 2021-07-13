@@ -6,12 +6,13 @@ var firebaseConfig = {
     projectId: "leverx-745ad",
     storageBucket: "leverx-745ad.appspot.com",
     messagingSenderId: "33580969644",
-    appId: "1:33580969644:web:b12ab304545fb49a5ab909"
+    appId: "1:33580969644:web:b12ab304545fb49a5ab909",
+    databaseURL: "https://leverx-745ad-default-rtdb.europe-west1.firebasedatabase.app/"
 };
 
 firebase.initializeApp(firebaseConfig);
 
-// buttons of header
+// elements of header
 
 let buttonLogOut = document.getElementById("button-log-out");
 let buttonLogIn = document.getElementById("button-log-in");
@@ -79,46 +80,60 @@ if(!localStorage.authorized){
 
 window.onload = function () {
 
-    //adding tags on page
+    // getting data from Firebase
 
-    let tags = document.getElementById('tags');
-
-    data.tags.forEach(function (item, i){
-        if (i===0) {
-            let tag = ce("li", item, "active");
-            tags.append(tag);
-        }
-        else {
-            let tag = ce("li", item, "tag");
-            tags.append(tag);}
-        }
-    )
-
-    //adding articles on page
-
-    let arts = document.getElementById('articles');
-
-    /*console.log(data.articles)*/
-
-    data.articles.forEach(function (item, i) {
-        let frame = ce("div","", "frame")
-        arts.append(frame)
-        let framePlace = document.getElementsByClassName("frame")[i];
-
-        let link = ce("a","", "link");
-        link.setAttribute("href", "pages/article/article.html");
-        /*console.log(link)*/
-        framePlace.append(link);
-
-        let linkPlace = document.getElementsByClassName("link")[i];
-
-        let artImage = ce("img","", "articleImage");
-        artImage.setAttribute("src", item.url)
-        /*console.log(artImage)*/
-        let artTitle = ce("div", item.title, "articleTitle")
-        let artText = ce("div", item.text, "articleText")
-        linkPlace.append(artImage, artTitle, artText);
+    firebase.database().ref().on('value', (snap) => {
+        let data = snap.val();
+        console.log(data)
+        creatingTags(data);
+        creatingArticles(data);
     })
+
+    //function of adding tags on page
+
+    function creatingTags(data) {
+        let tags = document.getElementById('tags');
+        data.tags.forEach(function (item, i){
+                if (i===0) {
+                    let tag = ce("li", item, "active");
+                    tags.append(tag);
+                }
+                else {
+                    let tag = ce("li", item, "tag");
+                    tags.append(tag);}
+            }
+        )
+    }
+
+    //function of adding articles on page
+
+    function creatingArticles(data) {
+        let arts = document.getElementById('articles');
+        data.articles.forEach(function (item, i) {
+            let frame = ce("div","", "frame")
+            arts.append(frame)
+            let framePlace = document.getElementsByClassName("frame")[i];
+
+            let link = ce("a","", "link");
+            link.setAttribute("href", "pages/article/article.html");
+
+            framePlace.append(link);
+
+            let linkPlace = document.getElementsByClassName("link")[i];
+
+            let artImage = ce("img","", "articleImage");
+            artImage.setAttribute("src", item.url)
+
+            let artTitle = ce("div", item.title, "articleTitle")
+            let artDescription = ce("div", item.description, "articleText")
+            linkPlace.append(artImage, artTitle, artDescription);
+        })
+
+    }
+
+
+
+
 
 
 }
