@@ -122,7 +122,14 @@ window.onload = function () {
             let linkPlace = document.getElementsByClassName("link")[i];
 
             let artImage = ce("img","", "articleImage");
-            artImage.setAttribute("src", item.url)
+
+            var storageRef = firebase.storage().ref();
+            storageRef.child(`${item.img}`).getDownloadURL().then(url => {
+                artImage.setAttribute("src", url)
+                }).catch(e =>
+                console.log(e)
+            )
+
 
             let artTitle = ce("div", item.title, "articleTitle")
             let artDescription = ce("div", item.description, "articleText")

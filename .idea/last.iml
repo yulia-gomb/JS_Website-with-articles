@@ -12,5 +12,6 @@
     <orderEntry type="library" name="firebase-auth" level="application" />
     <orderEntry type="library" name="firebase-firestore" level="application" />
     <orderEntry type="library" name="firebase-database" level="application" />
+    <orderEntry type="library" name="firebase-storage" level="application" />
   </component>
 </module>
