@@ -2,17 +2,19 @@ window.onload = function () {
 
     //adding tags on page
 
-    let tags = document.getElementById('tags');
-
-    data.tags.forEach(function (item){
-        let tag = ce("li", item, "tag plus");
-        tags.append(tag);
-        }
-    )
+    firebase.database().ref().on('value', (snap) => {
+        let data = snap.val();
+        console.log(data)
+        let tags = document.getElementById('tags');
+        data.tags.forEach(function (item){
+                let tag = ce("li", item, "tag plus");
+                tags.append(tag);
+            }
+        )
+    })
 
 
     //adding new block
-
 
     let button = document.getElementById('button-add-new-block');
 
@@ -21,18 +23,14 @@ window.onload = function () {
 
     function addBlock(e){
         e.preventDefault();
-        /*subtitle*/
         let newBlockSubsription = ce("h2","Enter the subtitle of your article")
 
         let newBlock= ce("input", "", "input-enter-subtitle");
         newBlock.setAttribute("type", "text");
         newBlock.setAttribute("placeholder", "Enter Subtitle");
 
-        /*console.log(newBlock)*/
-
         let newStorySubsription = ce("h2","Tell your story");
         let newStory= ce("textarea");
-
         let placeNewBlock=document.getElementById("new-block");
 
         placeNewBlock.append(newBlockSubsription,newBlock, newStorySubsription, newStory);
