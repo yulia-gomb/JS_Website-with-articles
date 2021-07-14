@@ -133,21 +133,15 @@ if(!localStorage.authorized){
 
     }
 
-// filter
+// filter for articles on active tags
 
 function filter() {
-    //****** all tags
-    const allTags = document.querySelectorAll('.tag');
-    /*console.log(allTags)*/
 
-    //*****all articles
+    const allTags = document.querySelectorAll('.tag');
     const allArticleTags = document.querySelectorAll('.articleTags')
-    /*console.log(allArticleTags)*/
 
     allTags.forEach(tag => {
             tag.addEventListener('click', () =>{
-                    const currentTag = tag.innerHTML;
-                    /*console.log(currentTag)*/
 
                     const isClassActive = tag.classList.contains('active');
                     if (isClassActive) {
@@ -158,8 +152,6 @@ function filter() {
                      let activeTags =[];
                         document.querySelectorAll('.active').forEach(i => {
                             activeTags.push(i.innerHTML);
-                            console.log('activeTags')
-                            console.log(activeTags)
                         } )
 
                     filterTitles(activeTags, allArticleTags);
@@ -170,34 +162,32 @@ function filter() {
     )
 
     function filterTitles(active, tags) {
-        tags.forEach((tag) => {
-            tag.parentNode.parentNode.classList.add('hidden');
-            }
-
-        )
-        tags.forEach((tag) => {
-            const itemFiltered = tag.parentNode.parentNode; //родительский элемент (статья целиком)
-
-            const inner = tag.innerHTML.split(',') //набор тегов статьи, их разделение
-
-            active.forEach((item) => {
-                    const isTags = inner.includes(item) //наличие у массива тегов статьи нужные тегов(активных)
-
-                    //рендер статей по признаку наличия нужных тегов
-                    if(isTags){
-                        itemFiltered.classList.remove('hidden')
-                    } /*else {
-                        itemFiltered.classList.remove('hidden')
-                    }*/
+        if (active.length!=0){
+            tags.forEach((tag) => {
+                    tag.parentNode.parentNode.classList.add('hidden');
                 }
+            )
+            tags.forEach((tag) => {
+                const itemFiltered = tag.parentNode.parentNode;
+                const inner = tag.innerHTML.split(',')
+
+                active.forEach((item) => {
+                        const isTags = inner.includes(item)
+
+                        if(isTags){
+                            itemFiltered.classList.remove('hidden')
+                        }
+                    }
                 )
-
-        })
+            })
+        } else {
+            tags.forEach((tag) => {
+                    tag.parentNode.parentNode.classList.remove('hidden');
+                }
+            )
+        }
     }
-
 }
-
-
 
 // general function of creating elements
 
@@ -211,9 +201,9 @@ function ce(name,text,className,event,fn) {
         element.className = className;
     }
 
-    if(event!=undefined && fn!==undefined) {
+    /*if(event!=undefined && fn!==undefined) {
         element.addEventListener(event,fn);
-    }
+    }*/
 
     return element;
 }

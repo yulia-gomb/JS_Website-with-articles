@@ -299,13 +299,9 @@ body{
 /* tags style finish */
 
 
-.articleTags{
-    color: red;
-    font-weight: bold;
-    /*display: none;*/
-}
 
-.articleText, .articleSubtitles {
+
+.articleTags, .articleText, .articleSubtitles {
     display: none;
 }
 
