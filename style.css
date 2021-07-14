@@ -293,11 +293,19 @@ body{
 }
 #tags li.active{
     color: #FFFFFF;
-    background: url("img/icon-active.png") no-repeat 20% center #2F80ED;
-    padding-left: 50px;
+    background: url("img/icon-active.png") no-repeat 10% center #2F80ED;
+    padding-left: 4%;
 }
 /* tags style finish */
 
 
+.articleTags{
+    color: red;
+    font-weight: bold;
+    /*display: none;*/
+}
 
+.articleText, .articleSubtitles {
+    display: none;
+}
 

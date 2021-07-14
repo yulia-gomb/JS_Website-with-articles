@@ -24,9 +24,6 @@ let avatar = document.getElementById("avatar");
 function googleSignIn() {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
-        /*console.log("success")
-        console.log(result)
-        console.log(result.additionalUserInfo.profile.picture)*/
         localStorage.setItem('authorized', true);
         localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
         /*window.location.href="../../index.html";*/
@@ -44,8 +41,6 @@ buttonLogOut.addEventListener("click", googleSignOut);
 function googleSignOut() {
 
     firebase.auth().signOut().then(function (result) {
-        /*console.log("success")
-        console.log(result)*/
         buttonLogIn.classList.remove("hidden");
         buttonLogOut.classList.add("hidden");
         buttonCreatePost.classList.add("hidden");
@@ -63,11 +58,9 @@ function googleSignOut() {
 //creating header
 
 if(localStorage.authorized){
-    /*console.log("localStorage")*/
     buttonCreatePost.classList.remove("hidden");
     buttonLogOut.classList.remove("hidden");
     let img = localStorage.avatar;
-    /*console.log(img)*/
     avatar.setAttribute("style",`background-image: url(${img})`);
     avatar.classList.remove("hidden");
 
@@ -77,19 +70,17 @@ if(!localStorage.authorized){
     buttonLogIn.classList.remove("hidden");
 }
 
-
-window.onload = function () {
-
-    // getting data from Firebase
+// getting data from Firebase
 
     firebase.database().ref().on('value', (snap) => {
         let data = snap.val();
         console.log(data)
         creatingTags(data);
         creatingArticles(data);
+        filter();
     })
 
-    //function of adding tags on page
+//function of adding tags on page
 
     function creatingTags(data) {
         let tags = document.getElementById('tags');
@@ -103,9 +94,12 @@ window.onload = function () {
                     tags.append(tag);}
             }
         )
+
+
+
     }
 
-    //function of adding articles on page
+//function of adding articles on page
 
     function creatingArticles(data) {
         let arts = document.getElementById('articles');
@@ -120,7 +114,6 @@ window.onload = function () {
             framePlace.append(link);
 
             let linkPlace = document.getElementsByClassName("link")[i];
-
             let artImage = ce("img","", "articleImage");
 
             var storageRef = firebase.storage().ref();
@@ -130,20 +123,81 @@ window.onload = function () {
                 console.log(e)
             )
 
-
             let artTitle = ce("div", item.title, "articleTitle")
-            let artDescription = ce("div", item.description, "articleText")
-            linkPlace.append(artImage, artTitle, artDescription);
+            let artDescription = ce("div", item.description, "articleDescription")
+            let artTags = ce("div", item.tags, "articleTags") //***tags
+            let artText = ce("div", item.text, "articleText") //***text
+            let artSubtitles = ce("div", item.subtitles, "articleSubtitles") //**subtitles
+            linkPlace.append(artImage, artTitle, artDescription, artTags, artText, artSubtitles);
         })
 
     }
 
+// filter
 
+function filter() {
+    //****** all tags
+    const allTags = document.querySelectorAll('.tag');
+    /*console.log(allTags)*/
 
+    //*****all articles
+    const allArticleTags = document.querySelectorAll('.articleTags')
+    /*console.log(allArticleTags)*/
 
+    allTags.forEach(tag => {
+            tag.addEventListener('click', () =>{
+                    const currentTag = tag.innerHTML;
+                    /*console.log(currentTag)*/
 
+                    const isClassActive = tag.classList.contains('active');
+                    if (isClassActive) {
+                        tag.classList.remove('active')
+                    } else {
+                        tag.classList.add('active')
+                    }
+                     let activeTags =[];
+                        document.querySelectorAll('.active').forEach(i => {
+                            activeTags.push(i.innerHTML);
+                            console.log('activeTags')
+                            console.log(activeTags)
+                        } )
+
+                    filterTitles(activeTags, allArticleTags);
+                }
+            )
+        }
+
+    )
+
+    function filterTitles(active, tags) {
+        tags.forEach((tag) => {
+            tag.parentNode.parentNode.classList.add('hidden');
+            }
+
+        )
+        tags.forEach((tag) => {
+            const itemFiltered = tag.parentNode.parentNode; //родительский элемент (статья целиком)
+
+            const inner = tag.innerHTML.split(',') //набор тегов статьи, их разделение
+
+            active.forEach((item) => {
+                    const isTags = inner.includes(item) //наличие у массива тегов статьи нужные тегов(активных)
+
+                    //рендер статей по признаку наличия нужных тегов
+                    if(isTags){
+                        itemFiltered.classList.remove('hidden')
+                    } /*else {
+                        itemFiltered.classList.remove('hidden')
+                    }*/
+                }
+                )
+
+        })
+    }
 
 }
+
+
 
 // general function of creating elements
 
@@ -157,9 +211,9 @@ function ce(name,text,className,event,fn) {
         element.className = className;
     }
 
-   /* if(event!=undefined && fn!==undefined) {
+    if(event!=undefined && fn!==undefined) {
         element.addEventListener(event,fn);
-    }*/
+    }
 
     return element;
 }
