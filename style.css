@@ -301,7 +301,7 @@ body{
 
 
 
-.articleTags, .articleText, .articleSubtitles {
+.articleTags, .artTextForSearching {
     display: none;
 }
 

@@ -26,8 +26,8 @@ function googleSignIn() {
     firebase.auth().signInWithPopup(provider).then(function (result) {
         localStorage.setItem('authorized', true);
         localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
-        /*window.location.href="../../index.html";*/
-        window.history.back(2);
+        window.location.href="../../index.html";
+        /*window.history.back(2);*/
 
     }).catch(function (err) {
         console.log("error")
@@ -63,7 +63,6 @@ if(localStorage.authorized){
     let img = localStorage.avatar;
     avatar.setAttribute("style",`background-image: url(${img})`);
     avatar.classList.remove("hidden");
-
 }
 
 if(!localStorage.authorized){
@@ -78,6 +77,7 @@ if(!localStorage.authorized){
         creatingTags(data);
         creatingArticles(data);
         filter();
+        search();
     })
 
 //function of adding tags on page
@@ -85,18 +85,10 @@ if(!localStorage.authorized){
     function creatingTags(data) {
         let tags = document.getElementById('tags');
         data.tags.forEach(function (item, i){
-                if (i===0) {
-                    let tag = ce("li", item, "active");
-                    tags.append(tag);
-                }
-                else {
-                    let tag = ce("li", item, "tag");
-                    tags.append(tag);}
+                let tag = ce("li", item, "tag");
+                tags.append(tag);
             }
         )
-
-
-
     }
 
 //function of adding articles on page
@@ -107,15 +99,11 @@ if(!localStorage.authorized){
             let frame = ce("div","", "frame")
             arts.append(frame)
             let framePlace = document.getElementsByClassName("frame")[i];
-
             let link = ce("a","", "link");
             link.setAttribute("href", "pages/article/article.html");
-
             framePlace.append(link);
-
             let linkPlace = document.getElementsByClassName("link")[i];
             let artImage = ce("img","", "articleImage");
-
             var storageRef = firebase.storage().ref();
             storageRef.child(`${item.img}`).getDownloadURL().then(url => {
                 artImage.setAttribute("src", url)
@@ -126,9 +114,10 @@ if(!localStorage.authorized){
             let artTitle = ce("div", item.title, "articleTitle")
             let artDescription = ce("div", item.description, "articleDescription")
             let artTags = ce("div", item.tags, "articleTags") //***tags
-            let artText = ce("div", item.text, "articleText") //***text
-            let artSubtitles = ce("div", item.subtitles, "articleSubtitles") //**subtitles
-            linkPlace.append(artImage, artTitle, artDescription, artTags, artText, artSubtitles);
+
+            let artTextForSearching = (item.title + item.description + item.subtitles + item.text).toLowerCase();
+            let areaOfSearching = ce("div", artTextForSearching,  "artTextForSearching")
+            linkPlace.append(artImage, artTitle, artDescription, artTags, areaOfSearching);
         })
 
     }
@@ -142,7 +131,6 @@ function filter() {
 
     allTags.forEach(tag => {
             tag.addEventListener('click', () =>{
-
                     const isClassActive = tag.classList.contains('active');
                     if (isClassActive) {
                         tag.classList.remove('active')
@@ -153,7 +141,6 @@ function filter() {
                         document.querySelectorAll('.active').forEach(i => {
                             activeTags.push(i.innerHTML);
                         } )
-
                     filterTitles(activeTags, allArticleTags);
                 }
             )
@@ -185,6 +172,28 @@ function filter() {
                     tag.parentNode.parentNode.classList.remove('hidden');
                 }
             )
+        }
+    }
+}
+// searching for article
+
+function search() {
+    document.querySelector('.button-search').oninput = function() {
+        let searchText = this.value.toLowerCase();
+        console.log(searchText)
+        let searchingArea = document.querySelectorAll('.artTextForSearching')
+        if(searchText!== undefined){
+            searchingArea.forEach(elem =>{
+                if(elem.innerHTML.search(searchText) === -1) {
+                    elem.parentNode.parentNode.classList.add('hidden');
+                } else {
+                    elem.parentNode.parentNode.classList.remove('hidden');
+                }
+                })
+        } else {
+            searchingArea.forEach(elem =>{
+                elem.parentNode.parentNode.classList.remove('hidden');
+            })
         }
     }
 }

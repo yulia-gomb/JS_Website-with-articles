@@ -66,7 +66,7 @@ article{
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.0075em;
-    background-color: #FFFFFF;
+    background: url("../../img/search-icon.png") no-repeat 25px center #FFFFFF;
     box-shadow: 0px -6px 8px rgba(234, 237, 242, 0.5), 0px 6px 8px rgba(234, 237, 242, 0.5);
     border-radius: 40px;
     width: 920px;
@@ -76,7 +76,7 @@ article{
     text-align: left;
     padding-top: 16px;
     padding-bottom: 20px;
-    padding-left: 46px;
+    padding-left: 60px;
     margin-bottom: 44px;
 }
 .button-search img{
