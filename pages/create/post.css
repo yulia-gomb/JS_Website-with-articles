@@ -157,3 +157,7 @@ textarea{
     background: #F2C94C;
 }
 /* footer style end */
+
+.hide{
+    display: none;
+}

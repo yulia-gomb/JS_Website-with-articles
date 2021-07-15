@@ -16,17 +16,18 @@
         </a>
     </div>
     <div class="button-plus-avatar">
-        <a href="../create/createPost.html" class="button-add-post hidden" id="button-create-post">Create a Post</a>
-        <a href="../login/login.html" class="button-log hidden" id="button-log-in">
+        <a href="../create/createPost.html" class="button-add-post hide" id="button-create-post">Create a Post</a>
+        <a href="../login/login.html" class="button-log hidden hide" id="button-log-in">
             Sign In</a>
-        <a href="#" class="button-log hidden" id="button-log-out">Log out</a>
+        <a href="#" class="button-log hidden hide" id="button-log-out">Log out</a>
         <div class="avatar hidden" id="avatar"></div>
     </div>
 </header>
 
 <main class="create-post-page">
-    <div class="wrapper">
-        <form class="form">
+
+        <form id="form" class="form">
+            <div class="wrapper">
 
             <div class="upload-file__wrapper">
                 <input
@@ -43,27 +44,29 @@
             </div>
 
             <h2>Enter the title of your article</h2>
-            <input type="text" placeholder="Enter Title" class="input-enter-title">
+            <input type="text" placeholder="Enter Title" class="input-enter-title" name="title" id="title">
             <h2>Enter the subtitle of your article</h2>
-            <input type="text" placeholder="Enter Subtitle" class="input-enter-subtitle">
+            <input type="text" placeholder="Enter Subtitle" class="input-enter-subtitle" name="subtitles" id="subtitle">
             <h2>Tell your story...</h2>
-            <textarea></textarea>
+            <textarea name="text" id="text"></textarea>
 
             <div id="new-block"></div>
             <button class="button-add-new-block" id="button-add-new-block">Add new block</button>
 
             <h2>Add tag information</h2>
             <ul id="tags"></ul>
-            <input type="text" placeholder="For example Angular" class="input-add-tag">
+            <input type="text" placeholder="For example Angular" class="input-add-tag" name="tags" id="activeTags">
+            </div>
+                <div class="post-footer">
+                <button class="button-preview">Preview</button>
+                <button type="submit" class="button-publish">Publish</button>
+
+            </div>
         </form>
-    </div>
+
 </main>
 
-<footer class="post-footer">
-    <button class="button-preview">Preview</button>
-    <button type="submit" class="button-publish">Publish </button>
 
-</footer>
 
 
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>

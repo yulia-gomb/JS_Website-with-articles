@@ -5,7 +5,7 @@ window.onload = function () {
     firebase.database().ref().on('value', (snap) => {
         let data = snap.val();
         console.log(data)
-        let tags = document.getElementById('tags');
+        let tags = document.getElementById('alltags');
         data.tags.forEach(function (item){
                 let tag = ce("li", item, "tag plus");
                 tags.append(tag);
@@ -13,13 +13,11 @@ window.onload = function () {
         )
     })
 
-
     //adding new block
 
     let button = document.getElementById('button-add-new-block');
 
     button.addEventListener("click",addBlock);
-    /*console.log(button)*/
 
     function addBlock(e){
         e.preventDefault();
@@ -147,4 +145,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// form submit
 
+    //reference articles collection
+    let articlesRef = firebase.database().ref('articles')
+
+    document.getElementById('form').addEventListener('submit', submitForm);
+    //submit
+    function submitForm(e) {
+        e.preventDefault();
+        //get values of inputs
+        let title = getInputVal('title');
+        let subtitle = getInputVal('subtitle');
+        let tags = getInputVal('activeTags');
+        let text = getInputVal('text');
+        //save article
+        saveArticle(title, subtitle, tags, text);
+}
+
+//function to get input value
+
+function getInputVal(id) {
+    return document.getElementById(id).value;
+}
+//save article to firebase
+
+function saveArticle(title, subtitle, tags, text) {
+    let newArticleRef = articlesRef.push();
+    newArticleRef.set({
+        title: title,
+        subtitle: subtitle,
+        tags: tags,
+        text: text
+    })
+    
+}
