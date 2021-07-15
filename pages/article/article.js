@@ -10,6 +10,24 @@ firebase.database().ref().on('value', (snap) => {
 
     console.log(articleData)
 
+    //**adding image
+    let sourceImage = articleData.img; //path to image
+    let artImage = ce("img", "", "article-main-image"); //create elem of image
+    var storageRef = firebase.storage().ref(); //ref to storage
+
+    storageRef.child(`${sourceImage}`).getDownloadURL().then(url => {
+        artImage.setAttribute("src", url); //set attribute src
+        let imagePlace = document.getElementById("article-main-image");
+        imagePlace.append(artImage);
+    }).catch(e =>
+        console.log(e)
+    )
+
+    //**adding title
+    let title = document.getElementById('articleTitle');
+    title.innerHTML = articleData.title;
+
+
     //**adding author
     let author = document.getElementById('articleAuthor');
     author.innerHTML = articleData.author;
@@ -25,8 +43,6 @@ firebase.database().ref().on('value', (snap) => {
             tags.append(tag);
         }
     )
-
-
 })
 
 
@@ -34,5 +50,4 @@ firebase.database().ref().on('value', (snap) => {
 
 
 
-/*
-let img = document.getElementById("article-main-image")*/
+

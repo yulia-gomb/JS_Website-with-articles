@@ -116,6 +116,9 @@ if(!localStorage.authorized){
             let artImage = ce("img","", "articleImage");
             var storageRef = firebase.storage().ref();
 
+            console.log("src to image") //******************remove
+            console.log(data.articles[item].img)//******************remove
+
             storageRef.child(`${data.articles[item].img}`).getDownloadURL().then(url => {
                 artImage.setAttribute("src", url)
                 }).catch(e =>
