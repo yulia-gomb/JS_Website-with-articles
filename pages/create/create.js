@@ -106,8 +106,10 @@ function activateTags(){
         let author = localStorage.getItem("author")
         //***img
         let img = "img/article4.png"
+        //***date
+        let date = new Date().toLocaleDateString("en", {year:"numeric", day:"2-digit", month:"long"});
         //save article
-        saveArticle(title, subtitles, tags, text, img, author);
+        saveArticle(title, subtitles, tags, text, img, author, date);
 }
 
 //function to get input value
@@ -117,7 +119,7 @@ function getInputVal(id) {
 }
 //save article to firebase
 
-function saveArticle(title, subtitles, tags, text, img, author) {
+function saveArticle(title, subtitles, tags, text, img, author, date) {
     let newArticleRef = articlesRef.push();
     newArticleRef.set({
         title: title,
@@ -126,7 +128,8 @@ function saveArticle(title, subtitles, tags, text, img, author) {
         tags: tags,
         text: text,
         img: img,
-        author: author
+        author: author,
+        date: date
     })
     
 }
