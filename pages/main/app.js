@@ -1,3 +1,5 @@
+localStorage.setItem("artID", "0")
+
 // Initialize Firebase
 
 var firebaseConfig = {
@@ -102,9 +104,10 @@ if(!localStorage.authorized){
             /*console.log('item')
             console.log(data.articles[item])*/
 
-            let frame = ce("div","", "frame")
+            let frame = ce("div","", "frame", 'click', redirectToArticlePage)
             arts.append(frame)
             let framePlace = document.getElementsByClassName("frame")[i];
+
             let link = ce("a","", "link");
             link.setAttribute("href", "pages/article/article.html");
             framePlace.append(link);
@@ -126,10 +129,19 @@ if(!localStorage.authorized){
             let artTextForSearching = (data.articles[item].title + data.articles[item].description + data.articles[item].subtitles + data.articles[item].text).toLowerCase();
 
             let areaOfSearching = ce("div", artTextForSearching,  "artTextForSearching")
-            linkPlace.append(artImage, artTitle, artDescription, artTags, areaOfSearching);
+
+            let artId = ce("div", item, "articleId")
+
+            linkPlace.append(artImage, artTitle, artDescription, artTags, areaOfSearching, artId);
         })
 
     }
+
+function redirectToArticlePage(e) {
+    console.log("e")
+    console.log(e.target)
+
+}
 
 // filter for articles on active tags
 
@@ -219,9 +231,9 @@ function ce(name,text,className,event,fn) {
         element.className = className;
     }
 
-    /*if(event!=undefined && fn!==undefined) {
+    if(event!=undefined && fn!==undefined) {
         element.addEventListener(event,fn);
-    }*/
+    }
 
     return element;
 }

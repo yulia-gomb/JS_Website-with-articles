@@ -304,4 +304,7 @@ body{
 .articleTags, .artTextForSearching {
     display: none;
 }
+.articleId{
+    color: red;
+}
 

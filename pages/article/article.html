@@ -31,8 +31,7 @@
             <img src="../../img/icon-arrow.png" alt=">"/>
             <span>Article </span>
         </nav>
-    <div class="article-main-image">
-        <img src="../../img/article-img.png" alt="Angular">
+    <div class="article-main-image" id="article-main-image">
     </div>
         <article class="article">
             <h1>Top 15 Features of Angular</h1>
@@ -46,15 +45,12 @@
             <p>Again, a developer may want to use the View layer, and that might be dependent on the library that needs a generic type parameter to be included. Here, ngcc could be of no help, and only the application logic code would be migrated, resulting in the library’s fixation by its native author.To prevent this, skipLibChecks can be disabled by setting its binary value to false in config or while application update for using Ivy.</p>
         </article>
         <div class="article-subscription">
-            <p>Adam Smith</p>
-            <p>June 17, 2021</p>
+            <p id="articleAuthor"></p>
+            <p id="articleDate"></p>
         </div>
         <div>
-            <ul id="tags" class="tags-article">
-                <li class="tag">Angular</li>
-                <li class="tag">Programmer</li>
+            <ul id="articleTags" class="tags-article">
             </ul>
-
         </div>
     </div>
 </main>
@@ -77,6 +73,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
 <script src="../main/app.js"></script>
+<script src="article.js"></script>
 
 </body>
 </html>
