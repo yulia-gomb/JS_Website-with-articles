@@ -159,8 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let subtitle = getInputVal('subtitle');
         let tags = getInputVal('activeTags');
         let text = getInputVal('text');
+        let img = "img/article4.png"
         //save article
-        saveArticle(title, subtitle, tags, text);
+        saveArticle(title, subtitle, tags, text, img);
 }
 
 //function to get input value
@@ -170,13 +171,14 @@ function getInputVal(id) {
 }
 //save article to firebase
 
-function saveArticle(title, subtitle, tags, text) {
+function saveArticle(title, subtitle, tags, text, img) {
     let newArticleRef = articlesRef.push();
     newArticleRef.set({
         title: title,
-        subtitle: subtitle,
+        description: subtitle,
         tags: tags,
-        text: text
+        text: text,
+        img: img
     })
     
 }

@@ -95,7 +95,10 @@ if(!localStorage.authorized){
 
     function creatingArticles(data) {
         let arts = document.getElementById('articles');
-        data.articles.forEach(function (item, i) {
+        Object.keys(data.articles).forEach(function (item, i) {
+            /*console.log('item')
+            console.log(data.articles[item])*/
+
             let frame = ce("div","", "frame")
             arts.append(frame)
             let framePlace = document.getElementsByClassName("frame")[i];
@@ -103,19 +106,22 @@ if(!localStorage.authorized){
             link.setAttribute("href", "pages/article/article.html");
             framePlace.append(link);
             let linkPlace = document.getElementsByClassName("link")[i];
+
             let artImage = ce("img","", "articleImage");
             var storageRef = firebase.storage().ref();
-            storageRef.child(`${item.img}`).getDownloadURL().then(url => {
+
+            storageRef.child(`${data.articles[item].img}`).getDownloadURL().then(url => {
                 artImage.setAttribute("src", url)
                 }).catch(e =>
                 console.log(e)
             )
 
-            let artTitle = ce("div", item.title, "articleTitle")
-            let artDescription = ce("div", item.description, "articleDescription")
-            let artTags = ce("div", item.tags, "articleTags") //***tags
+            let artTitle = ce("div", data.articles[item].title, "articleTitle")
+            let artDescription = ce("div", data.articles[item].description, "articleDescription")
+            let artTags = ce("div", data.articles[item].tags, "articleTags") //***tags
 
-            let artTextForSearching = (item.title + item.description + item.subtitles + item.text).toLowerCase();
+            let artTextForSearching = (data.articles[item].title + data.articles[item].description + data.articles[item].subtitles + data.articles[item].text).toLowerCase();
+
             let areaOfSearching = ce("div", artTextForSearching,  "artTextForSearching")
             linkPlace.append(artImage, artTitle, artDescription, artTags, areaOfSearching);
         })
