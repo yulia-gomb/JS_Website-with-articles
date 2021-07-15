@@ -26,6 +26,8 @@ function googleSignIn() {
     firebase.auth().signInWithPopup(provider).then(function (result) {
         localStorage.setItem('authorized', true);
         localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
+        console.log(result)
+        localStorage.setItem('author', result.additionalUserInfo.profile.name);
         window.location.href="../../index.html";
         /*window.history.back(2);*/
 
@@ -48,6 +50,7 @@ function googleSignOut() {
 
         delete localStorage.authorized;
         delete localStorage.avatar;
+        delete localStorage.author;
 
     }).catch(function (err) {
         console.log("error")

@@ -275,12 +275,12 @@ body{
 
 
 /* tags style start */
-#tags{
+#tags, #alltags{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
 }
-#tags li{
+.tag{
     text-align: center;
     letter-spacing: 0.0168em;
     padding: 8px 24px;
@@ -291,7 +291,7 @@ body{
     margin: 6px 12px 6px 0;
     cursor: pointer;
 }
-#tags li.active{
+.active{
     color: #FFFFFF;
     background: url("img/icon-active.png") no-repeat 10% center #2F80ED;
     padding-left: 4%;

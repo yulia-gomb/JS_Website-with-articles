@@ -111,16 +111,23 @@ textarea{
     color: #2F80ED;
     padding-left: 29px;
 }
-.input-add-tag{
+#activeTags{
     margin-top: 32px;
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.0075em;
-    height: 56px;
+    min-height: 56px;
+    height: 100%;
     color: #BDBDBD;
+    border: 1px solid #2F80ED;
+    width: 100%;
+    padding: 12px 32px;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#tags li.plus{
+.plus{
     background: url("../../img/icon-plus-black.png") no-repeat 20px center #FFFFFF;
     padding-left: 50px;
 }
