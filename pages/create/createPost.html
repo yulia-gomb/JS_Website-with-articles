@@ -30,6 +30,7 @@
             <div class="wrapper">
 
             <div class="upload-file__wrapper">
+                <img id="image" />
                 <input
                         type="file"
                         name="files[]"
@@ -37,6 +38,7 @@
                         class="upload-file__input"
                         accept=".jpg, .jpeg, .png, .gif, .bmp"
                 >
+
                 <label class="upload-file__label" for="upload-file__input_1">
                     <img class="upload-file__icon" src="../../img/icon-plus-blue.png" alt="upload file"/>
                     <span class="upload-file__text">Add Cover</span>
@@ -56,6 +58,9 @@
             <h2>Add tag information</h2>
             <ul id="alltags"></ul>
                 <ul id="activeTags"></ul>
+                <div id="alert">
+                    The article has been sent successfully!
+                </div>
             </div>
                 <div class="post-footer">
                 <button class="button-preview">Preview</button>
@@ -65,9 +70,6 @@
         </form>
 
 </main>
-
-
-
 
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>

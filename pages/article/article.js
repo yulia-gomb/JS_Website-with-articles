@@ -1,14 +1,11 @@
 //getting ID of article from localStorage
 
 let articleID = localStorage.getItem('artID');
-console.log(articleID)
 
 //adding tags on page
 
 firebase.database().ref().on('value', (snap) => {
     let articleData = snap.val().articles[articleID];
-
-    console.log(articleData)
 
     //**adding image
     let sourceImage = articleData.img; //path to image

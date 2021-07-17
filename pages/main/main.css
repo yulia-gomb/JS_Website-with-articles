@@ -130,6 +130,8 @@ article{
 }
 .articleImage{
     border-radius: 15px 15px 0 0;
+    width: 100%;
+    height: 196px;
 }
 
 /* articles style end */

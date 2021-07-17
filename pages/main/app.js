@@ -23,9 +23,10 @@ let avatar = document.getElementById("avatar");
 // button Sign in
 
 function googleSignIn() {
+
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
-        localStorage.setItem('authorized', true);
+        localStorage.setItem('authorized', 'true');
         localStorage.setItem('avatar', result.additionalUserInfo.profile.picture);
         console.log(result)
         localStorage.setItem('author', result.additionalUserInfo.profile.name);

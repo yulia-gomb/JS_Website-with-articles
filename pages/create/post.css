@@ -28,6 +28,11 @@ input, textarea{
     border: 1px dashed #2F80ED;
     margin-bottom: 30px;
 }
+
+#image{
+    height: 100%;
+    width: 100%;
+}
 .upload-file__input {
     opacity: 0;
     position: absolute;
@@ -42,6 +47,7 @@ input, textarea{
     align-items: center;
     width: 100%;
     height: 100%;
+    margin-top: -116px;
     padding: 9px 49px;
     cursor: pointer;
     color: #2F80ED;
@@ -166,5 +172,14 @@ textarea{
 /* footer style end */
 
 .hide{
+    display: none;
+}
+#alert{
+    background: #F2C94C;
+    border: 1px solid #FFC513;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
     display: none;
 }
