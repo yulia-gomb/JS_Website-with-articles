@@ -42,9 +42,9 @@
     letter-spacing: 0.0168em;
     margin-bottom: 44px;
 }
-.article p:last-child{
+/*.article p:last-child{
     margin-top: -20px;
-}
+}*/
 .article-subscription{
     font-weight: 600;
     font-size: 16px;

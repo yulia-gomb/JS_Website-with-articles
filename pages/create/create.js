@@ -1,21 +1,36 @@
 
 
-    //adding tags on page
+    //removing of area with set of tags (not to double them after submit)
+    const setTagsArea = document.getElementById("alltags");
+    /*while (setTagsArea.hasChildNodes()) {
+        setTagsArea.removeChild(setTagsArea.firstChild);
+    }*/
 
-    firebase.database().ref().on('value', (snap) => {
-        let data = snap.val();
-        console.log(data)
-        let tags = document.getElementById('alltags');
-        data.tags.forEach(function (item){
-                let tag = ce("li", item, "tag plus");
-                tags.append(tag);
-            }
-        )
-        activateTags();
 
-    })
 
-    //adding new block
+    //adding set of tags on page
+
+    if (!setTagsArea.hasChildNodes()){
+        firebase.database().ref().on('value', (snap) => {
+            let data = snap.val();
+            let tags = document.getElementById('alltags');
+            data.tags.forEach(function (item){
+                    let tag = ce("li", item, "tag plus");
+                    tags.append(tag);
+                }
+            )
+            activateTags();
+
+        })
+    }
+
+
+
+
+
+
+
+    //button "add new block"
 
     let button = document.getElementById('button-add-new-block');
 
@@ -37,11 +52,10 @@
 
     }
 
-//***function activateTags
+//function activateTags
 
 function activateTags(){
     const allTags = document.querySelectorAll('.tag');
-
     const activeTagsArea = document.getElementById("activeTags")
     let tagsForForm = [];
     allTags.forEach(tag => {
@@ -83,7 +97,8 @@ function activateTags(){
         //get values for form
 
         //***title
-        let title = getInputVal('title');
+        let title = document.getElementById('title').value;
+
         //***subtitles
         let subtitlesTags = document.querySelectorAll('.input-enter-subtitle')
         let subtitles = []
@@ -110,13 +125,18 @@ function activateTags(){
         let date = new Date().toLocaleDateString("en", {year:"numeric", day:"2-digit", month:"long"});
         //save article
         saveArticle(title, subtitles, tags, text, img, author, date);
-}
 
-//function to get input value
 
-function getInputVal(id) {
-    return document.getElementById(id).value;
-}
+        //removing of area with active tags
+        const activeTagsArea = document.getElementById("activeTags");
+        while (activeTagsArea.hasChildNodes()) {
+            activeTagsArea.removeChild(activeTagsArea.firstChild);
+        }
+
+
+
+    }
+
 //save article to firebase
 
 function saveArticle(title, subtitles, tags, text, img, author, date) {

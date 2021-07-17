@@ -1,4 +1,3 @@
-localStorage.setItem("artID", "0")
 
 // Initialize Firebase
 
@@ -101,8 +100,6 @@ if(!localStorage.authorized){
     function creatingArticles(data) {
         let arts = document.getElementById('articles');
         Object.keys(data.articles).forEach(function (item, i) {
-            /*console.log('item')
-            console.log(data.articles[item])*/
 
             let frame = ce("div","", "frame", 'click', redirectToArticlePage)
             arts.append(frame)
@@ -115,9 +112,6 @@ if(!localStorage.authorized){
 
             let artImage = ce("img","", "articleImage");
             var storageRef = firebase.storage().ref();
-
-            console.log("src to image") //******************remove
-            console.log(data.articles[item].img)//******************remove
 
             storageRef.child(`${data.articles[item].img}`).getDownloadURL().then(url => {
                 artImage.setAttribute("src", url)
@@ -140,10 +134,25 @@ if(!localStorage.authorized){
 
     }
 
-function redirectToArticlePage(e) {
-    console.log("e")
-    console.log(e.target)
+//redirecting to article page (catching article`s ID)
 
+function redirectToArticlePage(e) {
+    let target = e.target;
+    if (target.className === "frame") {
+        let ID = target.firstChild.lastChild.innerHTML;
+        setID(ID);
+    } else if (target.className === "link") {
+        let ID = target.lastChild.innerHTML;
+        setID(ID);
+    }
+    else {
+        let ID = target.parentNode.parentNode.firstChild.lastChild.innerHTML;
+        setID(ID);
+    }
+    function setID(id) {
+        localStorage.removeItem("artID");
+        localStorage.setItem("artID", id);
+    }
 }
 
 // filter for articles on active tags
@@ -173,7 +182,7 @@ function filter() {
     )
 
     function filterTitles(active, tags) {
-        if (active.length!=0){
+        if (active.length!==0){
             tags.forEach((tag) => {
                     tag.parentNode.parentNode.classList.add('hidden');
                 }
@@ -226,15 +235,15 @@ function search() {
 
 function ce(name,text,className,event,fn) {
     let element = document.createElement(name);
-    if(text!==undefined) {
+    if(text!== undefined) {
         element.innerHTML = text;
     }
 
-    if(className!==undefined) {
+    if(className!== undefined) {
         element.className = className;
     }
 
-    if(event!=undefined && fn!==undefined) {
+    if(event!== undefined && fn!== undefined) {
         element.addEventListener(event,fn);
     }
 

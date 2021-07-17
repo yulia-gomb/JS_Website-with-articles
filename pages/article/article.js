@@ -27,6 +27,19 @@ firebase.database().ref().on('value', (snap) => {
     let title = document.getElementById('articleTitle');
     title.innerHTML = articleData.title;
 
+    //**adding subtitles and text
+    let subtitlesAndText = document.getElementById('subtitles-and-text');
+    articleData.subtitles.forEach(function (item){
+            let subtitle = ce("h2", item, "subtitle");
+            subtitlesAndText.append(subtitle);
+        }
+    )
+    articleData.text.forEach(function (item, i){
+            let text = ce("p", item);
+            let subtitlePlace = document.getElementsByClassName("subtitle")[i];
+            subtitlePlace.after(text);
+        }
+    )
 
     //**adding author
     let author = document.getElementById('articleAuthor');
